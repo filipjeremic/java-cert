@@ -94,4 +94,22 @@ public class Collections {
 
   }
 
+  public static void accessOrderedHashMaps() {
+
+    System.out.println("----- accessOrderedHashMaps -----");
+
+    LinkedHashMap<String, Integer> basket = new LinkedHashMap<>(8, 0.75f, true);
+
+    basket.put("bread", 4);
+    basket.put("milk", 7);
+    basket.put("eggs", 12);
+
+    basket.get("bread");
+
+    basket.forEach((key, value) -> System.out.println(key + ": " + value));
+
+    System.out.println();
+
+  }
+
 }

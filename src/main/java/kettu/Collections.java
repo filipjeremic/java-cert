@@ -1,5 +1,6 @@
 package kettu;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
@@ -33,6 +34,28 @@ public class Collections {
     } catch (NoSuchElementException e) {
       System.out.println(e);
     }
+
+    System.out.println();
+
+  }
+
+  public static void hashMaps() {
+
+    System.out.println("----- hashMaps -----");
+
+    HashMap<String, Integer> basket = new HashMap<>();
+
+    basket.put("bread", 1);
+    System.out.println(basket);
+
+    basket.put("bread", 2);
+    System.out.println(basket);
+
+    System.out.println(basket.containsKey("bread"));
+
+    basket.merge("bread", 1, Integer::sum);
+    basket.merge("milk", 1, Integer::sum);
+    System.out.println(basket);
 
     System.out.println();
 

@@ -61,4 +61,20 @@ public class Collections {
 
   }
 
+  public static void unorderedHashMaps() {
+
+    System.out.println("----- unorderedHashMaps -----");
+
+    HashMap<String, Integer> basket = new HashMap<>();
+
+    basket.put("bread", 4);
+    basket.put("milk", 7);
+    basket.put("eggs", 12);
+
+    basket.forEach((key, value) -> System.out.println(key + ": " + value));
+
+    System.out.println();
+
+  }
+
 }

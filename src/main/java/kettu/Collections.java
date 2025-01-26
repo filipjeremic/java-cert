@@ -1,6 +1,7 @@
 package kettu;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
@@ -66,6 +67,22 @@ public class Collections {
     System.out.println("----- unorderedHashMaps -----");
 
     HashMap<String, Integer> basket = new HashMap<>();
+
+    basket.put("bread", 4);
+    basket.put("milk", 7);
+    basket.put("eggs", 12);
+
+    basket.forEach((key, value) -> System.out.println(key + ": " + value));
+
+    System.out.println();
+
+  }
+
+  public static void orderedHashMaps() {
+
+    System.out.println("----- orderedHashMaps -----");
+
+    LinkedHashMap<String, Integer> basket = new LinkedHashMap<>();
 
     basket.put("bread", 4);
     basket.put("milk", 7);

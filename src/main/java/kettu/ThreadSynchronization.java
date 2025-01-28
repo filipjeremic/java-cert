@@ -42,4 +42,26 @@ public class ThreadSynchronization {
     executorService.shutdown();
   }
 
+  private synchronized void withSynchronization() {
+    final int currentValue = getValue();
+    System.out.println("Start value: " + currentValue);
+
+    if (currentValue < 10) {
+      addValue(10);
+      System.out.println("End value: " + getValue());
+    } else {
+      System.out.println("Value already too large");
+    }
+  }
+
+  public void testWithSynchronization() {
+
+    ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+    executorService.submit(() -> withSynchronization());
+    executorService.submit(() -> withSynchronization());
+
+    executorService.shutdown();
+  }
+
 }

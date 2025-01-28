@@ -13,4 +13,12 @@ public class Threads {
     t2.start();
   }
 
+  public static void testThreadImplements() {
+    Thread t1 = new Thread(new ThreadImplements());
+    Thread t2 = new Thread(() -> System.out.println("I'm a runnable lambda"));
+
+    t1.start();
+    t2.start();
+  }
+
 }

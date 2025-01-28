@@ -1,5 +1,8 @@
 package kettu;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Threads {
 
   public static void testThreadExtends() {
@@ -19,6 +22,15 @@ public class Threads {
 
     t1.start();
     t2.start();
+  }
+
+  public static void testExecutorService() {
+    ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+    executorService.submit(new ThreadImplements());
+    executorService.submit(() -> System.out.println("I'm in an ExecutorService"));
+
+    executorService.shutdown();
   }
 
 }

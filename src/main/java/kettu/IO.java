@@ -44,4 +44,14 @@ public class IO {
 
   }
 
+  public static void listFilesExample() {
+
+    try {
+      Files.list(Paths.get(".")).forEach(System.out::println);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+  }
+
 }

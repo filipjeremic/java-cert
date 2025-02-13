@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Generics {
 
+  @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
   public static void Unparameterized() {
 
     System.out.println("----- Unparameterized -----");
@@ -95,6 +96,7 @@ public class Generics {
     return Arrays.asList(array);
   }
 
+  @SuppressWarnings("unused")
   public static void Bounded() {
 
     System.out.println("----- Bounded -----");

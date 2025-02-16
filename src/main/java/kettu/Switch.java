@@ -2,6 +2,10 @@ package kettu;
 
 import java.util.Arrays;
 
+enum Birds {
+  EAGLE, SPARROW, PARROT, OSTRICH, PENGUIN
+}
+
 public class Switch {
 
   public static void primitiveDataTypesExample() {
@@ -65,6 +69,22 @@ public class Switch {
           break;
         case "banana":
           System.out.println("imported");
+          break;
+        case null, default:
+          System.out.println("unknown");
+          break;
+      }
+    });
+  }
+
+  public static void enumExample() {
+    Arrays.asList(Birds.EAGLE, Birds.SPARROW, Birds.PARROT, Birds.OSTRICH, Birds.PENGUIN, null).forEach(bird -> {
+      switch (bird) {
+        case EAGLE, SPARROW, PARROT:
+          System.out.println("flying");
+          break;
+        case OSTRICH, PENGUIN:
+          System.out.println("flightless");
           break;
         case null, default:
           System.out.println("unknown");

@@ -1,5 +1,7 @@
 package kettu;
 
+import java.util.Arrays;
+
 public class Switch {
 
   public static void primitiveDataTypesExample() {
@@ -34,6 +36,25 @@ public class Switch {
         System.out.println("n/a");
         break;
     }
+  }
+
+  public static void wrapperClassExample() {
+    Arrays.asList(Byte.valueOf((byte) 3), Byte.valueOf((byte) 4), null).forEach(b -> {
+      switch (b) {
+        case 4:
+          System.out.println("four");
+          break;
+        case 5:
+          System.out.println("five");
+          break;
+        case null:
+          System.out.println("null");
+          break;
+        default:
+          System.out.println("other");
+          break;
+      }
+    });
   }
 
 }

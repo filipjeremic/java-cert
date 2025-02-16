@@ -57,4 +57,20 @@ public class Switch {
     });
   }
 
+  public static void stringExample() {
+    Arrays.asList("apple", "banana", "cherry", null).forEach((final String fruit) -> {
+      switch (fruit) {
+        case "apple":
+          System.out.println("homegrown");
+          break;
+        case "banana":
+          System.out.println("imported");
+          break;
+        case null, default:
+          System.out.println("unknown");
+          break;
+      }
+    });
+  }
+
 }

@@ -93,4 +93,15 @@ public class Switch {
     });
   }
 
+  public static void patternMatchingExample() {
+    Arrays.asList(Integer.valueOf(5), Double.valueOf(7.7), "text", null).forEach((final Object object) -> {
+      System.out.println(switch (object) {
+        case String s -> "String:" + s;
+        case Integer i -> "int: " + Integer.toString(i);
+        case null -> "null";
+        default -> "n/a";
+      });
+    });
+  }
+
 }

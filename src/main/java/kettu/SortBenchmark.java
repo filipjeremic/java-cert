@@ -33,6 +33,11 @@ public class SortBenchmark {
         IntStream.of(arr).sorted().toArray();
       });
 
+      final int[] arr2 = arr.clone();
+      timeFunction(() -> {
+        Arrays.parallelSort(arr2);
+      });
+
       System.out.println();
     }
   }

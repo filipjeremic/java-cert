@@ -126,4 +126,20 @@ public class Wildcards {
   private static void printList(List<? super TestClass1> list) {
     list.forEach(System.out::println);
   }
+
+  public static void unboundedExample() {
+    List<Object> list1 = Arrays.asList(new Object());
+    printListUnbounded(list1);
+
+    List<TestClass1> list2 = Arrays.asList(new TestClass1());
+    printListUnbounded(list2);
+
+    // Here it works
+    List<TestClass2> list3 = Arrays.asList(new TestClass2());
+    printListUnbounded(list3);
+  }
+
+  private static void printListUnbounded(List<?> list) {
+    list.forEach(System.out::println);
+  }
 }

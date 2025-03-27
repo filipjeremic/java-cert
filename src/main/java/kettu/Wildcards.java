@@ -81,6 +81,16 @@ class WindowsServer implements WindowsNT {
   }
 }
 
+class TestClass1 {
+  @Override
+  public String toString() {
+    return this.getClass().getSimpleName();
+  }
+}
+
+class TestClass2 extends TestClass1 {
+}
+
 public class Wildcards {
 
   public static void upperBoundedExample() {
@@ -99,5 +109,21 @@ public class Wildcards {
 
   private static void bootAll(List<? extends OperatingSystem> osList) {
     osList.forEach(OperatingSystem::boot);
+  }
+
+  public static void lowerBoundedExample() {
+    List<Object> list1 = Arrays.asList(new Object());
+    printList(list1);
+
+    List<TestClass1> list2 = Arrays.asList(new TestClass1());
+    printList(list2);
+
+    // This won't work
+    // List<TestClass2> list3 = Arrays.asList(new TestClass2());
+    // printList(list3);
+  }
+
+  private static void printList(List<? super TestClass1> list) {
+    list.forEach(System.out::println);
   }
 }

@@ -3,7 +3,7 @@ package kettu;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ThreadSynchronization {
+public class ThreadSynchronizationDemo {
 
   private int value = 5;
 

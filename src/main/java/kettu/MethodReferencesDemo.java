@@ -3,11 +3,11 @@ package kettu;
 import java.util.Arrays;
 import java.util.List;
 
-public class MethodReferences {
+public class MethodReferencesDemo {
 
   private int x;
 
-  MethodReferences(final int x) {
+  MethodReferencesDemo(final int x) {
     this.x = x;
   }
 
@@ -30,7 +30,7 @@ public class MethodReferences {
     System.out.println();
 
     // Using a method reference
-    numbers.forEach(MethodReferences::staticPrint);
+    numbers.forEach(MethodReferencesDemo::staticPrint);
     System.out.println();
 
     System.out.println();
@@ -41,7 +41,7 @@ public class MethodReferences {
 
     System.out.println("----- instanceMethodReferences -----");
 
-    MethodReferences methodReferences = new MethodReferences(100);
+    MethodReferencesDemo methodReferences = new MethodReferencesDemo(100);
 
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 

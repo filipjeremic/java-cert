@@ -3,7 +3,7 @@ package kettu;
 import java.util.Arrays;
 import java.util.List;
 
-public class ComparableInterfaceExample {
+public class ComparableInterfaceDemo {
 
   private static class TestClass implements Comparable<TestClass> {
 

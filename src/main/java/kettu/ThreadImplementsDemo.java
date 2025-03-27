@@ -1,6 +1,6 @@
 package kettu;
 
-public class ThreadImplements implements Runnable {
+public class ThreadImplementsDemo implements Runnable {
 
   @Override
   public void run() {

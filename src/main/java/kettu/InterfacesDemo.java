@@ -12,7 +12,7 @@ interface Two {
   }
 }
 
-public class Interfaces implements One, Two {
+public class InterfacesDemo implements One, Two {
   @Override
   public void printName() {
     One.super.printName();

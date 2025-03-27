@@ -2,7 +2,7 @@ package kettu;
 
 import java.math.BigDecimal;
 
-public class DecimalPrecision {
+public class DecimalPrecisionDemo {
 
   public static void precisionErrorExample() {
 

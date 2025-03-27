@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class IO {
+public class IODemo {
 
   public static void bufferedReaderExample() {
 

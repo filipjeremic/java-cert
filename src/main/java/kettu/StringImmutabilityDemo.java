@@ -1,6 +1,6 @@
 package kettu;
 
-public class StringImmutability {
+public class StringImmutabilityDemo {
 
   public static void example1() {
 

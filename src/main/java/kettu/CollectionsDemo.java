@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-public class Collections {
+public class CollectionsDemo {
 
   public static void linkedLists() {
 

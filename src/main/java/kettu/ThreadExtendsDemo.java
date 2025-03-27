@@ -1,6 +1,6 @@
 package kettu;
 
-public class ThreadExtends extends Thread {
+public class ThreadExtendsDemo extends Thread {
 
   @Override
   public void run() {

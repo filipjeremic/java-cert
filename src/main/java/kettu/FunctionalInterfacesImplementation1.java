@@ -1,6 +1,6 @@
 package kettu;
 
-public class FunctionalInterfacesImplementation1 implements FunctionalInterfaces {
+public class FunctionalInterfacesImplementation1 implements FunctionalInterfacesDemo {
 
   @Override
   public void printMessage() {

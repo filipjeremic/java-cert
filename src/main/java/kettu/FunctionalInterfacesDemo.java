@@ -1,7 +1,7 @@
 package kettu;
 
 @FunctionalInterface
-public interface FunctionalInterfaces {
+public interface FunctionalInterfacesDemo {
 
   void printMessage();
 

@@ -39,7 +39,7 @@ class Motorcycle extends Vehicle {
 
 }
 
-public class LiskovSubstitutionPrinciple {
+public class LiskovSubstitutionPrincipleDemo {
 
   // Objects of a superclass should be replaceable with objects of
   // a subclass without affecting the correctness of the program
@@ -50,13 +50,13 @@ public class LiskovSubstitutionPrinciple {
 
   private static void printVehicles(List<Vehicle> vehiclesList) {
     System.out.println("----- printVehicles -----");
-    vehiclesList.forEach(LiskovSubstitutionPrinciple::printVehicle);
+    vehiclesList.forEach(LiskovSubstitutionPrincipleDemo::printVehicle);
     System.out.println();
   }
 
   private static void printVehiclesWildcard(List<? extends Vehicle> vehiclesList) {
     System.out.println("----- printVehiclesWildcard -----");
-    vehiclesList.forEach(LiskovSubstitutionPrinciple::printVehicle);
+    vehiclesList.forEach(LiskovSubstitutionPrincipleDemo::printVehicle);
     System.out.println();
   }
 

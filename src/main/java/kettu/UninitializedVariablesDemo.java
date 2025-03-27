@@ -1,6 +1,6 @@
 package kettu;
 
-public class UninitializedVariables {
+public class UninitializedVariablesDemo {
 
   static boolean static_boolean;
   static int static_int;
@@ -34,7 +34,7 @@ public class UninitializedVariables {
     System.out.println("static_String: " + static_String);
     System.out.println();
 
-    UninitializedVariables uv = new UninitializedVariables();
+    UninitializedVariablesDemo uv = new UninitializedVariablesDemo();
 
     System.out.println("instance_boolean: " + uv.instance_boolean);
     System.out.println("instance_int: " + uv.instance_int);

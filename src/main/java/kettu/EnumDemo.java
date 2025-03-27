@@ -25,7 +25,7 @@ enum Color {
   }
 }
 
-public class EnumExample {
+public class EnumDemo {
   public static void run() {
     final EnumSet<Color> colors = EnumSet.range(Color.WHITE, Color.BLACK);
     colors.forEach(System.out::println);

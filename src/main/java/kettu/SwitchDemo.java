@@ -6,7 +6,7 @@ enum Birds {
   EAGLE, SPARROW, PARROT, OSTRICH, PENGUIN
 }
 
-public class Switch {
+public class SwitchDemo {
 
   public static void primitiveDataTypesExample() {
     final int x = 2;

@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class StringAppendPerformance {
+public class StringAppendingBenchmark {
 
   private final static int ITERATION_COUNT = 200000;
 

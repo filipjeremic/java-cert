@@ -91,7 +91,7 @@ class TestClass1 {
 class TestClass2 extends TestClass1 {
 }
 
-public class Wildcards {
+public class WildcardsDemo {
 
   public static void upperBoundedExample() {
     List<OperatingSystem> osList = Arrays.asList(
@@ -118,7 +118,7 @@ public class Wildcards {
     List<TestClass1> list2 = Arrays.asList(new TestClass1());
     printList(list2);
 
-    // This won't work
+    // This doesn't work
     // List<TestClass2> list3 = Arrays.asList(new TestClass2());
     // printList(list3);
   }
@@ -134,7 +134,7 @@ public class Wildcards {
     List<TestClass1> list2 = Arrays.asList(new TestClass1());
     printListUnbounded(list2);
 
-    // Here it works
+    // This works
     List<TestClass2> list3 = Arrays.asList(new TestClass2());
     printListUnbounded(list3);
   }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
-public class UnaryOperatorExample {
+public class UnaryOperatorDemo {
 
   public static void run() {
     final List<String> list = Arrays.asList("one", "two", "three");

@@ -1,6 +1,6 @@
 package kettu;
 
-public class ZeroDiv {
+public class ZeroDivDemo {
 
   public static void runExamples() {
 

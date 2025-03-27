@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Streams {
+public class StreamsDemo {
 
   // Two different types of operation can be performed on a stream:
   // - intermediate (return another stream, used to chain operations)

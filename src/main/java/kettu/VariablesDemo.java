@@ -1,6 +1,6 @@
 package kettu;
 
-public class Variables {
+public class VariablesDemo {
 
   @SuppressWarnings("unused")
   public static void namesTest() {

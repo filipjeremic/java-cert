@@ -94,14 +94,16 @@ public class SwitchDemo {
   }
 
   public static void patternMatchingExample() {
-    Arrays.asList(Integer.valueOf(5), Double.valueOf(7.7), "text", null).forEach((final Object object) -> {
-      System.out.println(switch (object) {
-        case String s -> "String:" + s;
-        case Integer i -> "int: " + Integer.toString(i);
-        case null -> "null";
-        default -> "n/a";
-      });
-    });
+    Arrays.asList(Integer.valueOf(5), Integer.valueOf(-3), Double.valueOf(7.7), "text", null)
+        .forEach((final Object object) -> {
+          System.out.println(switch (object) {
+            case String s -> "String:" + s;
+            case Integer i when i >= 0 -> "positive int: " + Integer.toString(i);
+            case Integer i -> "negative int: " + Integer.toString(i);
+            case null -> "null";
+            default -> "n/a";
+          });
+        });
   }
 
 }

@@ -21,4 +21,14 @@ public class OperatorDemo {
         // (b ? a1 : a2) = 5; doesn't compile, but would work in C++
     }
 
+    public static void sideEffectsExample() {
+        int x = 1;
+        try {
+            int y = 2 / --x;
+            System.out.println(y);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }

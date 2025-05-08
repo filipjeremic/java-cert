@@ -37,4 +37,22 @@ public class PromotionsDemo {
     System.out.println(((Object) (f + d)).getClass().getSimpleName());
   }
 
+  @SuppressWarnings("unused")
+  public static void safeAssignmentsExample() {
+    final long l = 4;
+    // these fail because long is larger than int, even though the value would fit
+    // byte b = l;
+    // final int i = l;
+
+    // initialization works if the value fits the target size
+    final byte b0 = 127;
+    // final byte b1 = 128;
+
+    final int fi = 80;
+    byte b1 = fi; // work because the compiler knows the value is int and will fit
+
+    int i = 80;
+    // byte b2 = i; i is not a constant expression
+  }
+
 }

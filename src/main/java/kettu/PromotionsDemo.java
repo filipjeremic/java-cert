@@ -55,6 +55,7 @@ public class PromotionsDemo {
     // byte b2 = i; i is not a constant expression
   }
 
+  @SuppressWarnings("unused")
   public static void ternaryOperatorExample() {
     final byte fb = 1;
     byte b = 1;
@@ -193,6 +194,22 @@ public class PromotionsDemo {
     System.out.println(((Object) (boolTrue ? f : d)).getClass().getSimpleName());
     System.out.println(((Object) (boolFalse ? f : d)).getClass().getSimpleName());
     System.out.println();
+
+    final Boolean BoolTrue = true;
+    final Boolean BoolFalse = false;
+    final var primitiveBoolean1 = boolTrue ? boolTrue : boolFalse;
+    final var primitiveBoolean2 = boolTrue ? boolTrue : BoolFalse;
+    final var booleanWrapper1 = boolTrue ? BoolTrue : BoolFalse;
+
+    final Integer Int1 = 1;
+    final Integer Int2 = 2;
+    final var integerWrapper1 = boolTrue ? Int1 : Int2;
+    final var primitiveInt1 = boolTrue ? Int1 : 1;
+    final Double Double1 = 1.0;
+    final Double Double2 = 2.0;
+    final var doubleWrapper1 = boolTrue ? Double1 : Double2;
+    final var primitiveDouble1 = boolTrue ? Double1 : 1.0;
+    final var primitiveDouble2 = boolTrue ? Double1 : Int1;
   }
 
 }

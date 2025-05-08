@@ -210,6 +210,24 @@ public class PromotionsDemo {
     final var doubleWrapper1 = boolTrue ? Double1 : Double2;
     final var primitiveDouble1 = boolTrue ? Double1 : 1.0;
     final var primitiveDouble2 = boolTrue ? Double1 : Int1;
+
+    class A {
+    }
+    class B extends A {
+    }
+    class C extends A {
+    }
+
+    final B br = new B();
+    final C cr = new C();
+
+    final var ar = boolTrue ? br : cr; // A
+
+    final String str = "";
+    final StringBuilder sb;
+    final var ss = boolTrue ? str : sb; // Object & Serializable & Comparable<?> & CharSequence
+
+    final var io = boolTrue ? i : new Object(); // Object
   }
 
 }

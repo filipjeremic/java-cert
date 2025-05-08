@@ -31,4 +31,13 @@ public class OperatorDemo {
         }
     }
 
+    public static void remainderExample() {
+        // the sign of the right operand is ignored
+        // the result is always the same sign as the left operand
+        System.out.println(5 % 3);
+        System.out.println(-5 % 3);
+        System.out.println(5 % -3);
+        System.out.println(-5 % -3);
+    }
+
 }

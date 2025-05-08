@@ -14,7 +14,7 @@ public class OperatorDemo {
     }
 
     @SuppressWarnings("unused")
-    public static void example2() {
+    public static void ternaryLValueExample() {
         int i1 = 0;
         int i2 = 0;
         boolean b = true;

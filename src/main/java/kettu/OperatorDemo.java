@@ -13,4 +13,12 @@ public class OperatorDemo {
         // x++ = 10;
     }
 
+    @SuppressWarnings("unused")
+    public static void example2() {
+        int i1 = 0;
+        int i2 = 0;
+        boolean b = true;
+        // (b ? a1 : a2) = 5; doesn't compile, but would work in C++
+    }
+
 }

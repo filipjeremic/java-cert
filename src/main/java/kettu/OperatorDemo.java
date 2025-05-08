@@ -40,4 +40,13 @@ public class OperatorDemo {
         System.out.println(-5 % -3);
     }
 
+    @SuppressWarnings("unused")
+    public static void assignmentExample() {
+        int[] ia1 = { 0, 1, 2, 3 };
+        int[] ia2 = { 5, 6, 7, 8 };
+        int[] ia = ia1;
+        int x = 0;
+        System.out.println((ia = ia2)[x = 3]); // prints 8
+    }
+
 }

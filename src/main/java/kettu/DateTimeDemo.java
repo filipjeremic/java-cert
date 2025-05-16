@@ -38,6 +38,9 @@ public class DateTimeDemo {
     System.out.println(parsedLocalDate);
 
     System.out.println(parsedLocalDate.with(ChronoField.MONTH_OF_YEAR, 2));
+
+    final LocalDate localDateOf = LocalDate.of(2099, 7, 5);
+    System.out.println(localDateOf);
   }
 
   private static void localTimeExample() {

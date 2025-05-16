@@ -20,6 +20,7 @@ public class DateTimeDemo {
     dateTimeManipulationExample();
     periodExample();
     durationExample();
+    durationExample2();
   }
 
   private static void localDateExample() {
@@ -77,6 +78,13 @@ public class DateTimeDemo {
     final Instant end = Instant.now();
     final Duration duration = Duration.between(start, end);
     System.out.printf("Duration: %d milliseconds%n", duration.toMillis());
+  }
+
+  private static void durationExample2() {
+    final Duration duration1 = Duration.ofMinutes(30);
+    final Duration duration2 = Duration.ofMinutes(270);
+    System.out.println(duration1);
+    System.out.println(duration2);
   }
 
 }

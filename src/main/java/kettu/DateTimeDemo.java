@@ -19,6 +19,7 @@ public class DateTimeDemo {
     zonedDateTimeExample2();
     dateTimeManipulationExample();
     periodExample();
+    normalizedPeriodExample();
     durationExample();
     durationExample2();
   }
@@ -66,6 +67,15 @@ public class DateTimeDemo {
 
     System.out.printf("%d years, %d months, and %d days have passed since the first moon landing.%n", p.getYears(),
         p.getMonths(), p.getDays());
+  }
+
+  private static void normalizedPeriodExample() {
+    final Period period = Period.of(2, 17, 500);
+    System.out.println(period);
+    System.out.println(period.normalized());
+    // months can be normalized, but days can't
+    // 12 months always make a year
+    // months and years can differ in length
   }
 
   private static void durationExample() {

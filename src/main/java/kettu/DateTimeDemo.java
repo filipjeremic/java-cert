@@ -26,6 +26,7 @@ public class DateTimeDemo {
     durationExample2();
     supportedFieldsExample();
     adjustIntoExample();
+    isLeapYearExample();
   }
 
   private static void localDateExample() {
@@ -141,6 +142,11 @@ public class DateTimeDemo {
     final LocalDateTime localDateTime = LocalDateTime.now();
     final Temporal adjustedLocalDateTime = localDate.adjustInto(localDateTime);
     System.out.println(adjustedLocalDateTime);
+  }
+
+  private static void isLeapYearExample() {
+    final LocalDate localDate = LocalDate.now();
+    System.out.printf("Year %d is %sa leap year%n", localDate.getYear(), localDate.isLeapYear() ? "" : "not ");
   }
 
 }

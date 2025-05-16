@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoField;
 
 public class DateTimeDemo {
 
@@ -33,6 +34,8 @@ public class DateTimeDemo {
 
     final LocalDate parsedLocalDate = LocalDate.parse("2024-07-26");
     System.out.println(parsedLocalDate);
+
+    System.out.println(parsedLocalDate.with(ChronoField.MONTH_OF_YEAR, 2));
   }
 
   private static void localTimeExample() {

@@ -28,9 +28,10 @@ public class DateTimeDemo {
   private static void localDateExample() {
     final LocalDate localDate = LocalDate.now();
     System.out.println(localDate);
-    System.out.println(localDate.getYear());
-    System.out.println(localDate.getMonth());
-    System.out.println(localDate.getDayOfWeek());
+    System.out.printf("%d == %d%n", localDate.getYear(), localDate.get(ChronoField.YEAR));
+    System.out.printf("%s is month number %d%n", localDate.getMonth(), localDate.get(ChronoField.MONTH_OF_YEAR));
+    System.out.printf("%s is day number %d in a week%n", localDate.getDayOfWeek(),
+        localDate.get(ChronoField.DAY_OF_WEEK));
 
     final LocalDate parsedLocalDate = LocalDate.parse("2024-07-26");
     System.out.println(parsedLocalDate);

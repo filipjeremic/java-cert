@@ -27,6 +27,9 @@ public class DateTimeDemo {
   private static void localDateExample() {
     final LocalDate localDate = LocalDate.now();
     System.out.println(localDate);
+    System.out.println(localDate.getYear());
+    System.out.println(localDate.getMonth());
+    System.out.println(localDate.getDayOfWeek());
   }
 
   private static void localTimeExample() {

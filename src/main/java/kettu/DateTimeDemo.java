@@ -23,6 +23,7 @@ public class DateTimeDemo {
     normalizedPeriodExample();
     durationExample();
     durationExample2();
+    supportedFieldsExample();
   }
 
   private static void localDateExample() {
@@ -111,6 +112,20 @@ public class DateTimeDemo {
     final Duration duration2 = Duration.ofMinutes(270);
     System.out.println(duration1);
     System.out.println(duration2);
+  }
+
+  private static void supportedFieldsExample() {
+    final LocalDate localDate = LocalDate.now();
+    System.out.printf("%b %b%n", localDate.isSupported(ChronoField.MONTH_OF_YEAR),
+        localDate.isSupported(ChronoField.HOUR_OF_DAY));
+
+    final LocalTime localTime = LocalTime.now();
+    System.out.printf("%b %b%n", localTime.isSupported(ChronoField.MONTH_OF_YEAR),
+        localTime.isSupported(ChronoField.HOUR_OF_DAY));
+
+    final LocalDateTime localDateTime = LocalDateTime.now();
+    System.out.printf("%b %b%n", localDateTime.isSupported(ChronoField.MONTH_OF_YEAR),
+        localDateTime.isSupported(ChronoField.HOUR_OF_DAY));
   }
 
 }

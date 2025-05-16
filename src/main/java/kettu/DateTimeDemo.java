@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class DateTimeDemo {
@@ -15,6 +16,7 @@ public class DateTimeDemo {
     localTimeExample();
     localDateTimeExample();
     zonedDateTimeExample();
+    zonedDateTimeExample2();
     dateTimeManipulationExample();
     periodExample();
     durationExample();
@@ -38,6 +40,14 @@ public class DateTimeDemo {
   private static void zonedDateTimeExample() {
     final ZonedDateTime zonedDateTime = ZonedDateTime.now();
     System.out.println(zonedDateTime);
+  }
+
+  private static void zonedDateTimeExample2() {
+    final Instant instant = Instant.now();
+    final ZonedDateTime zdtAntarcticaVostok = ZonedDateTime.ofInstant(instant, ZoneId.of("Antarctica/Vostok"));
+
+    System.out.println(instant);
+    System.out.println(zdtAntarcticaVostok);
   }
 
   private static void dateTimeManipulationExample() {

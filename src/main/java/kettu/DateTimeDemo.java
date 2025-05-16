@@ -30,6 +30,9 @@ public class DateTimeDemo {
     System.out.println(localDate.getYear());
     System.out.println(localDate.getMonth());
     System.out.println(localDate.getDayOfWeek());
+
+    final LocalDate parsedLocalDate = LocalDate.parse("2024-07-26");
+    System.out.println(parsedLocalDate);
   }
 
   private static void localTimeExample() {

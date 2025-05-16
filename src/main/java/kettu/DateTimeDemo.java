@@ -9,6 +9,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
+import java.time.temporal.Temporal;
 
 public class DateTimeDemo {
 
@@ -24,6 +25,7 @@ public class DateTimeDemo {
     durationExample();
     durationExample2();
     supportedFieldsExample();
+    adjustIntoExample();
   }
 
   private static void localDateExample() {
@@ -132,6 +134,13 @@ public class DateTimeDemo {
     final LocalDateTime localDateTime = LocalDateTime.now();
     System.out.printf("%b %b%n", localDateTime.isSupported(ChronoField.MONTH_OF_YEAR),
         localDateTime.isSupported(ChronoField.HOUR_OF_DAY));
+  }
+
+  private static void adjustIntoExample() {
+    final LocalDate localDate = LocalDate.of(2050, 10, 10);
+    final LocalDateTime localDateTime = LocalDateTime.now();
+    final Temporal adjustedLocalDateTime = localDate.adjustInto(localDateTime);
+    System.out.println(adjustedLocalDateTime);
   }
 
 }

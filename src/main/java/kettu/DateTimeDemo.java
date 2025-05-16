@@ -40,6 +40,12 @@ public class DateTimeDemo {
   private static void localDateTimeExample() {
     final LocalDateTime localDateTime = LocalDateTime.now();
     System.out.println(localDateTime);
+
+    final var localDate = LocalDate.from(localDateTime);
+    System.out.println(localDate);
+
+    final var localTime = LocalTime.from(localDateTime);
+    System.out.println(localTime);
   }
 
   private static void zonedDateTimeExample() {

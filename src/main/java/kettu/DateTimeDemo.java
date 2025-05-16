@@ -22,6 +22,7 @@ public class DateTimeDemo {
     dateTimeManipulationExample();
     periodExample();
     normalizedPeriodExample();
+    addingPeriodsExample();
     durationExample();
     durationExample2();
     supportedFieldsExample();
@@ -102,6 +103,17 @@ public class DateTimeDemo {
     // months can be normalized, but days can't
     // 12 months always make a year
     // months and years can differ in length
+  }
+
+  public static void addingPeriodsExample() {
+    final LocalDate feb15 = LocalDate.of(2025, 2, 15);
+    System.out.println(feb15);
+
+    final Period thirtyDaysPeriod = Period.ofDays(30);
+    System.out.println(feb15.plus(thirtyDaysPeriod));
+
+    final Period oneMonthPeriod = Period.ofMonths(1);
+    System.out.println(feb15.plus(oneMonthPeriod));
   }
 
   private static void durationExample() {

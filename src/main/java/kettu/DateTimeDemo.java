@@ -54,6 +54,9 @@ public class DateTimeDemo {
 
     final var localTime = LocalTime.from(localDateTime);
     System.out.println(localTime);
+
+    final var localDateTime2 = localDate.atTime(15, 33, 59);
+    System.out.println(localDateTime2);
   }
 
   private static void zonedDateTimeExample() {

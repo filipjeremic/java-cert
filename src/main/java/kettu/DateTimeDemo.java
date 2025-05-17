@@ -30,6 +30,7 @@ public class DateTimeDemo {
     supportedFieldsExample();
     adjustIntoExample();
     isLeapYearExample();
+    timeZonesExample();
   }
 
   private static void localDateExample() {
@@ -183,6 +184,30 @@ public class DateTimeDemo {
   private static void isLeapYearExample() {
     final LocalDate localDate = LocalDate.now();
     System.out.printf("Year %d is %sa leap year%n", localDate.getYear(), localDate.isLeapYear() ? "" : "not ");
+  }
+
+  private static void timeZonesExample() {
+    final var localDate = LocalDate.of(2000, 1, 1);
+    final var localTime = LocalTime.of(14, 12);
+    final var localDateTime = LocalDateTime.of(localDate, localTime);
+    final var localDateTime2 = LocalDateTime.from(LocalDate.of(2025, 5, 17).adjustInto(localDateTime));
+    System.out.println(localDateTime2);
+
+    final var zonedDateTime = ZonedDateTime.of(localDateTime2, ZoneId.of("America/New_York"));
+    System.out.println(zonedDateTime);
+
+    final var instant = zonedDateTime.toInstant();
+    System.out.println(instant);
+
+    final var zonedDateTime2 = ZonedDateTime.ofInstant(instant, ZoneId.of("Australia/Queensland"));
+    System.out.println(zonedDateTime2);
+
+    final var takeoffTimeMontreal = ZonedDateTime.of(2025, 3, 22, 21, 58, 0, 0, ZoneId.of("America/Montreal"));
+    final var landingTimeMontreal = takeoffTimeMontreal.plusHours(6).plusMinutes(20);
+    final var landingTimeLisbon = landingTimeMontreal.withZoneSameInstant(ZoneId.of("Europe/Lisbon"));
+    System.out.println(takeoffTimeMontreal);
+    System.out.println(landingTimeMontreal);
+    System.out.println(landingTimeLisbon);
   }
 
 }

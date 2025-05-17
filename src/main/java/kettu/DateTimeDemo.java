@@ -19,6 +19,7 @@ public class DateTimeDemo {
     localDateTimeExample();
     zonedDateTimeExample();
     zonedDateTimeExample2();
+    zoneIdExample();
     dateTimeManipulationExample();
     periodExample();
     normalizedPeriodExample();
@@ -77,6 +78,12 @@ public class DateTimeDemo {
 
     System.out.println(instant);
     System.out.println(zdtAntarcticaVostok);
+  }
+
+  private static void zoneIdExample() {
+    // ZoneId.getAvailableZoneIds().forEach(System.out::println);
+    final var zoneId = ZoneId.of("Europe/Paris");
+    System.out.println(zoneId);
   }
 
   private static void dateTimeManipulationExample() {

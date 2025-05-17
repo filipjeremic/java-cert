@@ -20,6 +20,7 @@ public class DateTimeDemo {
     zonedDateTimeExample();
     zonedDateTimeExample2();
     zoneIdExample();
+    zoneTransitionsExample();
     dateTimeManipulationExample();
     periodExample();
     normalizedPeriodExample();
@@ -84,6 +85,22 @@ public class DateTimeDemo {
     // ZoneId.getAvailableZoneIds().forEach(System.out::println);
     final var zoneId = ZoneId.of("Europe/Paris");
     System.out.println(zoneId);
+  }
+
+  private static void zoneTransitionsExample() {
+    final var zoneId = ZoneId.of("Europe/Berlin");
+    // zoneId.getRules().getTransitions().forEach(System.out::println);
+    System.out.println(zoneId.getRules().nextTransition(Instant.now()));
+    System.out.println(zoneId.getRules().previousTransition(Instant.now()));
+
+    final var zonedDateTime = ZonedDateTime.parse("2025-03-29T00:00:00+01:00[Europe/Berlin]");
+    System.out.println(zonedDateTime);
+    System.out.println(zonedDateTime.plusHours(24));
+    System.out.println(zonedDateTime.plusHours(48));
+    System.out.println(zonedDateTime.plusHours(72));
+    System.out.println(zonedDateTime.plusDays(1));
+    System.out.println(zonedDateTime.plusDays(2));
+    System.out.println(zonedDateTime.plusDays(3));
   }
 
   private static void dateTimeManipulationExample() {

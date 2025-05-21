@@ -9,6 +9,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 
 public class DateTimeDemo {
@@ -31,6 +32,7 @@ public class DateTimeDemo {
     adjustIntoExample();
     isLeapYearExample();
     timeZonesExample();
+    instantAndPeriodExamples();
   }
 
   private static void localDateExample() {
@@ -208,6 +210,27 @@ public class DateTimeDemo {
     System.out.println(takeoffTimeMontreal);
     System.out.println(landingTimeMontreal);
     System.out.println(landingTimeLisbon);
+  }
+
+  private static void instantAndPeriodExamples() {
+    final Period periodOneYear = Period.ofYears(1);
+    final Period periodOneMonth = Period.ofMonths(1);
+
+    final ZonedDateTime zdt_2020_2_1 = ZonedDateTime.of(2020, 2, 1, 12, 15, 30, 0, ZoneId.of("GMT"));
+
+    final ZonedDateTime zdt_2021_2_1 = zdt_2020_2_1.plus(periodOneYear);
+    final ZonedDateTime zdt_2020_3_1 = zdt_2020_2_1.plus(periodOneMonth);
+    final ZonedDateTime zdt_2021_3_1 = zdt_2021_2_1.plus(periodOneMonth);
+
+    final Instant instant_2020_2_1 = zdt_2020_2_1.toInstant();
+    final Instant instant_2021_2_1 = zdt_2021_2_1.toInstant();
+
+    System.out.println(instant_2020_2_1.until(zdt_2020_3_1, ChronoUnit.DAYS)); // leap year
+    System.out.println(instant_2021_2_1.until(zdt_2021_3_1, ChronoUnit.DAYS)); // not a leap year
+    System.out.println(instant_2020_2_1.until(zdt_2021_2_1, ChronoUnit.DAYS)); // leap year
+
+    System.out.println(instant_2020_2_1.truncatedTo(ChronoUnit.HOURS));
+    System.out.println(instant_2020_2_1.truncatedTo(ChronoUnit.DAYS));
   }
 
 }

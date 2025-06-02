@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class ThreadsDemo {
 
-  public static void testThreadExtends() {
+  public static void threadExtendsExample() {
     ThreadExtendsDemo t1 = new ThreadExtendsDemo();
     ThreadExtendsDemo t2 = new ThreadExtendsDemo();
 
@@ -16,7 +16,7 @@ public class ThreadsDemo {
     t2.start();
   }
 
-  public static void testThreadImplements() {
+  public static void threadImplementsExample() {
     Thread t1 = new Thread(new ThreadImplementsDemo());
     Thread t2 = new Thread(() -> System.out.println("I'm a runnable lambda"));
 
@@ -24,7 +24,7 @@ public class ThreadsDemo {
     t2.start();
   }
 
-  public static void testExecutorService() {
+  public static void executorServiceExample() {
     ExecutorService executorService = Executors.newFixedThreadPool(2);
 
     executorService.submit(new ThreadImplementsDemo());

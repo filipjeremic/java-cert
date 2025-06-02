@@ -1,7 +1,10 @@
 package kettu;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class ThreadsDemo {
 
@@ -41,6 +44,21 @@ public class ThreadsDemo {
     }
 
     executorService.shutdown();
+  }
+
+  public static void futureExample() {
+    try (final ExecutorService executor = Executors.newFixedThreadPool(2)) {
+      final Callable<Integer> task = () -> {
+        return 42;
+      };
+
+      final Future<Integer> future = executor.submit(task);
+
+      final Integer result = future.get();
+      System.out.println("Result: " + result);
+    } catch (InterruptedException | ExecutionException e) {
+      e.printStackTrace();
+    }
   }
 
 }

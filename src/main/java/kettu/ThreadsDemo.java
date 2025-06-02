@@ -25,10 +25,20 @@ public class ThreadsDemo {
   }
 
   public static void executorServiceExample() {
-    ExecutorService executorService = Executors.newFixedThreadPool(2);
+    System.out.println("Main threadId: " + Thread.currentThread().threadId());
+
+    final ExecutorService executorService = Executors.newFixedThreadPool(3);
 
     executorService.submit(new ThreadImplementsDemo());
-    executorService.submit(() -> System.out.println("I'm in an ExecutorService"));
+    executorService.submit(() -> System.out.println("Lambda threadId: " + Thread.currentThread().threadId()));
+
+    final Runnable task = () -> {
+      System.out.println("Task threadId: " + Thread.currentThread().threadId());
+    };
+
+    for (int i = 0; i < 3; i++) {
+      executorService.execute(task);
+    }
 
     executorService.shutdown();
   }

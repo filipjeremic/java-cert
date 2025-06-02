@@ -1,10 +1,13 @@
 package kettu;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ThreadsDemo {
 
@@ -56,6 +59,31 @@ public class ThreadsDemo {
 
       final Integer result = future.get();
       System.out.println("Result: " + result);
+    } catch (InterruptedException | ExecutionException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void completionServiceExample() {
+    final Callable<Integer> randomIntTask = () -> {
+      final int randomInt = ThreadLocalRandom.current().nextInt(0, 100);
+      System.out.println("ThreadId: " + Thread.currentThread().threadId() + " --- value: " + randomInt);
+      return randomInt;
+    };
+
+    try (final ExecutorService executor = Executors.newFixedThreadPool(5)) {
+      final CompletionService<Integer> completionService = new ExecutorCompletionService<>(executor);
+
+      final int ITERATION_COUNT = 10;
+
+      for (int i = 0; i < ITERATION_COUNT; i++) {
+        completionService.submit(randomIntTask);
+      }
+
+      for (int i = 0; i < ITERATION_COUNT; i++) {
+        final Future<Integer> future = completionService.take();
+        System.out.println(future.get());
+      }
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
     }

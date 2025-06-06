@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLFeatureNotSupportedException;
 
 public class ExceptionsDemo {
 
@@ -79,6 +80,20 @@ public class ExceptionsDemo {
     } catch (IOException e) {
     }
 
+  }
+
+  @SuppressWarnings("unused")
+  private static void multiCatchExample() {
+    try {
+      if (Math.random() < 0.5) {
+        throw new FileNotFoundException();
+      }
+
+      if (Math.random() < 0.5) {
+        throw new SQLFeatureNotSupportedException();
+      }
+    } catch (FileNotFoundException | SQLFeatureNotSupportedException e) {
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 package kettu;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExceptionsDemo {
@@ -17,6 +18,7 @@ public class ExceptionsDemo {
     }
 
     uncheckedExceptionsExample1();
+    nestedTryExample();
   }
 
   private static void mightThrowInTheFutureExample() throws IOException {
@@ -29,6 +31,25 @@ public class ExceptionsDemo {
   @SuppressWarnings("unused")
   private static void uncheckedExceptionsExample2() {
     throw new RuntimeException();
+  }
+
+  private static void nestedTryExample() {
+    try {
+      try {
+        if (Math.random() > 0.5) {
+          throw new FileNotFoundException();
+        }
+        System.out.println("Message #1");
+      } finally {
+        System.out.println("Message #2");
+      }
+      System.out.println("Message #3");
+    } catch (FileNotFoundException e) {
+      System.out.println("Message #4");
+    } finally {
+      System.out.println("Message #5");
+    }
+    System.out.println("Message #6");
   }
 
 }

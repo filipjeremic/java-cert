@@ -113,4 +113,25 @@ public class ExceptionsDemo {
     }
   }
 
+  @SuppressWarnings("unused")
+  private static void rethrowExample2() throws Exception {
+    try {
+      if (Math.random() < 0.5) {
+        throw new FileNotFoundException();
+      }
+
+      if (Math.random() < 0.5) {
+        throw new SQLException();
+      }
+    } catch (IOException | SQLException e) {
+      System.out.println(e.getClass().getName());
+      final Exception ex = e;
+      System.out.println(ex.getClass().getName());
+      throw ex;
+      // we are throwing ex, not e
+      // because of that we have 'throws Exception' in the method signature
+      // and not 'throws FileNotFoundException, SQLException'
+    }
+  }
+
 }

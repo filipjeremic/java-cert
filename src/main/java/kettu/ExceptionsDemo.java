@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 
 public class ExceptionsDemo {
@@ -93,6 +94,22 @@ public class ExceptionsDemo {
         throw new SQLFeatureNotSupportedException();
       }
     } catch (FileNotFoundException | SQLFeatureNotSupportedException e) {
+    }
+  }
+
+  @SuppressWarnings("unused")
+  private static void rethrowExample1() throws FileNotFoundException, SQLException {
+    try {
+      if (Math.random() < 0.5) {
+        throw new FileNotFoundException();
+      }
+
+      if (Math.random() < 0.5) {
+        throw new SQLException();
+      }
+    } catch (IOException | SQLException e) {
+      System.out.println(e.getClass().getName());
+      throw e;
     }
   }
 

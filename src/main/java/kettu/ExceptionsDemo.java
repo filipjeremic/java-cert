@@ -1,6 +1,8 @@
 package kettu;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ExceptionsDemo {
@@ -50,6 +52,33 @@ public class ExceptionsDemo {
       System.out.println("Message #5");
     }
     System.out.println("Message #6");
+  }
+
+  @SuppressWarnings("unused")
+  private static void tryWithResourcesExample() {
+
+    try {
+      FileReader fr = new FileReader("");
+      fr.close();
+
+      // the code won't compile if the FileReader line below is uncommented
+      // because it makes fr not effectively final
+      // fr = new FileReader("");
+
+      try (fr; FileWriter fw = new FileWriter("");) {
+      }
+    } catch (IOException e) {
+    }
+
+    // but this is ok
+    try {
+      FileReader fr = new FileReader("");
+      try (FileReader fr2 = fr; FileWriter fw = new FileWriter("")) {
+      }
+      fr = null;
+    } catch (IOException e) {
+    }
+
   }
 
 }

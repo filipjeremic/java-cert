@@ -23,6 +23,7 @@ public class ExceptionsDemo {
 
     uncheckedExceptionsExample();
     nestedTryExample();
+    autoCloseableExample();
   }
 
   private static void mightThrowInTheFutureExample() throws IOException {
@@ -132,6 +133,38 @@ public class ExceptionsDemo {
       // because of that we have 'throws Exception' in the method signature
       // and not 'throws FileNotFoundException, SQLException'
     }
+  }
+
+  static class MyAutoCloseable implements AutoCloseable {
+
+    private static int CURRENT_ID = 0;
+    private int id = CURRENT_ID++;
+
+    MyAutoCloseable() {
+      System.out.println("Constructing " + id);
+    }
+
+    @Override
+    public void close() throws IOException {
+      if (id == 1) {
+        throw new IOException();
+      }
+      System.out.println("Closing " + id);
+    }
+
+  }
+
+  private static void autoCloseableExample() {
+    System.out.println("Function start");
+    final MyAutoCloseable mac0 = new MyAutoCloseable();
+    try (final MyAutoCloseable mac1 = new MyAutoCloseable();
+        mac0;
+        final MyAutoCloseable mac2 = new MyAutoCloseable();) {
+      System.out.println("In the try block");
+    } catch (IOException e) {
+      System.out.println("In the catch block");
+    }
+    System.out.println("Function end");
   }
 
 }

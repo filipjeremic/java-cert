@@ -4,6 +4,7 @@ public class RecordPatternsDemo {
 
   public static void runExamples() {
     flexibilityExample();
+    typeBasedPatternExample();
   }
 
   record Point(int x, int y) {
@@ -29,6 +30,21 @@ public class RecordPatternsDemo {
       System.out.println("Color 2: " + coloredPoint.c);
     }
 
+  }
+
+  record TestRecord(Object obj) {
+  }
+
+  private static void printTypeBasedPattern(final TestRecord testRecord) {
+    switch (testRecord) {
+      case TestRecord(String s) -> System.out.println("String: " + s);
+      case TestRecord(Object o) -> System.out.println("Object: " + o);
+    }
+  }
+
+  private static void typeBasedPatternExample() {
+    printTypeBasedPattern(new TestRecord(new Object()));
+    printTypeBasedPattern(new TestRecord("abc"));
   }
 
 }

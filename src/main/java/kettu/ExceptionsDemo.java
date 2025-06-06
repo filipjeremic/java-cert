@@ -15,9 +15,20 @@ public class ExceptionsDemo {
       mightThrowInTheFutureExample();
     } catch (IOException e) {
     }
+
+    uncheckedExceptionsExample1();
   }
 
   private static void mightThrowInTheFutureExample() throws IOException {
+  }
+
+  private static void uncheckedExceptionsExample1() throws RuntimeException {
+    System.out.println("Ignored by the compiler, no need for the try-catch block");
+  }
+
+  @SuppressWarnings("unused")
+  private static void uncheckedExceptionsExample2() {
+    throw new RuntimeException();
   }
 
 }

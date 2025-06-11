@@ -142,6 +142,17 @@ public class ExceptionsDemo {
     }
   }
 
+  @SuppressWarnings("finally")
+  private static void lostExceptionExample() throws InterruptedException, IOException {
+    try {
+      throw new InterruptedException();
+    } catch (InterruptedException e) {
+      throw new InterruptedException("catch block exception"); // this exception is lost
+    } finally {
+      throw new IOException("finally block exception");
+    }
+  }
+
   static class MyAutoCloseable implements AutoCloseable {
 
     private static int CURRENT_ID = 0;
@@ -172,17 +183,6 @@ public class ExceptionsDemo {
       System.out.println("In the catch block");
     }
     System.out.println("Function end");
-  }
-
-  @SuppressWarnings("finally")
-  private static void lostExceptionExample() throws InterruptedException, IOException {
-    try {
-      throw new InterruptedException();
-    } catch (InterruptedException e) {
-      throw new InterruptedException("catch block exception"); // this exception is lost
-    } finally {
-      throw new IOException("finally block exception");
-    }
   }
 
 }

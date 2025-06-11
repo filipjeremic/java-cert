@@ -24,6 +24,13 @@ public class ExceptionsDemo {
     uncheckedExceptionsExample();
     nestedTryExample();
     autoCloseableExample();
+
+    try {
+      lostExceptionExample();
+    } catch (InterruptedException | IOException e) {
+      System.out.println(e);
+      System.out.println(e.getSuppressed().length);
+    }
   }
 
   private static void mightThrowInTheFutureExample() throws IOException {
@@ -165,6 +172,17 @@ public class ExceptionsDemo {
       System.out.println("In the catch block");
     }
     System.out.println("Function end");
+  }
+
+  @SuppressWarnings("finally")
+  private static void lostExceptionExample() throws InterruptedException, IOException {
+    try {
+      throw new InterruptedException();
+    } catch (InterruptedException e) {
+      throw new InterruptedException("catch block exception"); // this exception is lost
+    } finally {
+      throw new IOException("finally block exception");
+    }
   }
 
 }

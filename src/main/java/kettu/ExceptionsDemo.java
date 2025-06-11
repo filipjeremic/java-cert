@@ -155,8 +155,8 @@ public class ExceptionsDemo {
 
   static class MyAutoCloseable implements AutoCloseable {
 
-    private static int CURRENT_ID = 0;
-    private int id = CURRENT_ID++;
+    private static int NEXT_ID = 0;
+    private int id = NEXT_ID++;
 
     MyAutoCloseable() {
       System.out.println("Constructing " + id);

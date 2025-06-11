@@ -31,6 +31,8 @@ public class ExceptionsDemo {
       System.out.println(e);
       System.out.println(e.getSuppressed().length);
     }
+
+    suppressedExceptionsExample();
   }
 
   private static void mightThrowInTheFutureExample() throws IOException {
@@ -183,6 +185,42 @@ public class ExceptionsDemo {
       System.out.println("In the catch block");
     }
     System.out.println("Function end");
+  }
+
+  static class MyOtherAutoCloseable implements AutoCloseable {
+
+    private static int NEXT_ID = 0;
+    private int id = NEXT_ID++;
+
+    {
+      System.out.println("id = " + id);
+    }
+
+    @Override
+    public void close() throws SQLException, IOException, InterruptedException {
+      System.out.println("Closing " + id);
+
+      switch (id % 3) {
+        case 0 -> throw new SQLException();
+        case 1 -> throw new IOException();
+        case 2 -> throw new InterruptedException();
+      }
+    }
+
+  }
+
+  private static void suppressedExceptionsExample() {
+    try (
+        final MyOtherAutoCloseable c0 = new MyOtherAutoCloseable();
+        final MyOtherAutoCloseable c1 = new MyOtherAutoCloseable();
+        final MyOtherAutoCloseable c2 = new MyOtherAutoCloseable();) {
+      throw new IOException("try block exception");
+    } catch (SQLException | IOException | InterruptedException e) {
+      System.out.println(e);
+      for (final Throwable suppressedException : e.getSuppressed()) {
+        System.out.println(suppressedException);
+      }
+    }
   }
 
 }
